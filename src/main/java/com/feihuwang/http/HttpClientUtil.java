@@ -16,7 +16,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-class HttpClientUtil {
+public class HttpClientUtil {
 
 	private static final Log log = LogFactory.getLog(HttpClientUtil.class);
 	
