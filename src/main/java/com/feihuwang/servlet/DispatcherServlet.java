@@ -26,16 +26,22 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		response.setContentType("text/xml;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		String keyUrl = request.getParameter("key_url");//key_url标记
-		String api_key = "";
-		String url = Constants.PATH + keyUrl + "&" + api_key;
-		String result = HttpClientUtil.getInstance().getResponseAsString(url);
+		response.setContentType("application/json; charset=utf-8");
+		String result = "";
+		String rKeyUrl = request.getParameter("key_url"); //接口标记
+		String rPlat = request.getParameter("plat"); //平台标记
+		String keyUrl = Constants.KEY_MAP.get(rKeyUrl);
+		String plat = Constants.PLAT_MAP.get(rPlat);
+		
+		if (rKeyUrl != null && rPlat != null && keyUrl != null && plat != null) {
+			String params = request.getParameter("params");//参数标记标记
+			String url = Constants.PATH + keyUrl + "?auth_key=" + Constants.AUTH_KEY + "&plat=" + plat + "&" + params;
+			result = HttpClientUtil.getInstance().getResponseAsString(url);
+		}
 		out.write(result);
 		out.flush();
-		//请求转发
-		//request.getRequestDispatcher("/WxSubclaus?id=" + subClauseId).forward(request, response);
+		//request.getRequestDispatcher("/WxSubclaus?id=" + subClauseId).forward(request, response); //请求转发
 	}
 	
 	//获取客户端请求真实IP
