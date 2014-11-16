@@ -2,6 +2,7 @@ package com.feihuwang.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,20 +24,28 @@ public class DispatcherServlet extends HttpServlet {
 		doPost(request, response);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		String result = "";
-		String rKeyUrl = request.getParameter("key_url"); //接口标记
-		String rPlat = request.getParameter("plat"); //平台标记
+		String rKeyUrl = request.getParameter(Constants.KEY_URL); //接口标记
+		String rPlat = request.getParameter(Constants.PLAT); //平台标记
 		String keyUrl = Constants.KEY_MAP.get(rKeyUrl);
 		String plat = Constants.PLAT_MAP.get(rPlat);
 		
 		if (rKeyUrl != null && rPlat != null && keyUrl != null && plat != null) {
-			String params = request.getParameter("params");//参数标记标记
-			String url = Constants.PATH + keyUrl + "?auth_key=" + Constants.AUTH_KEY + "&plat=" + plat + "&" + params;
+			Enumeration enu = request.getParameterNames();  
+			StringBuffer paramsSb = new StringBuffer();
+			while(enu.hasMoreElements()){  
+				String paraName = (String)enu.nextElement();  
+				if (!Constants.KEY_URL.equals(paraName) && !Constants.PLAT.equals(paraName)) {
+					paramsSb.append("&" + paraName + "=" + request.getParameter(paraName));
+				}
+			} 
+			String url = Constants.PATH + keyUrl + "?auth_key=" + Constants.AUTH_KEY + "&plat=" + plat + paramsSb.toString();
 			result = HttpClientUtil.getInstance().getResponseAsString(url);
 		}
 		out.write(result);

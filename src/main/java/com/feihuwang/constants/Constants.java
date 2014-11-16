@@ -5,9 +5,13 @@ import java.util.Map;
 
 public class Constants {
 	private final static String HOST = "182.92.160.36";
+//	private final static String HOST = "localhost";
 	private final static String PORT = "8080";
-	public final static String AUTH_KEY = ""; 
 	private final static String CONTEXT = "/"; // 应用上下文
+//	private final static String CONTEXT = "/ab_mobile/"; // 应用上下文
+	public final static String AUTH_KEY = ""; // 忽略，不需要传递
+	public final static String PLAT = "plat"; // 平台标记参数，需要传递
+	public final static String KEY_URL = "key_url"; // 接口标记参数，需要传递
 	public final static String PATH = "http://" + HOST + ":" + PORT + CONTEXT;
 	
 	/**
