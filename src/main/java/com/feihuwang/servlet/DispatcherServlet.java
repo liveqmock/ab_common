@@ -25,9 +25,9 @@ public class DispatcherServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
 		String result = "";
 		String rKeyUrl = request.getParameter("key_url"); //接口标记
 		String rPlat = request.getParameter("plat"); //平台标记
