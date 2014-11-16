@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.feihuwang.constants.Constants;
 import com.feihuwang.http.HttpClientUtil;
+import com.feihuwang.util.FileUtil;
 
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = -2388152467479022418L;
@@ -33,8 +36,10 @@ public class DispatcherServlet extends HttpServlet {
 		String result = "";
 		String rKeyUrl = request.getParameter(Constants.KEY_URL); //接口标记
 		String rPlat = request.getParameter(Constants.PLAT); //平台标记
+		String rDebug = request.getParameter(Constants.DEBUG); //调试标记
 		String keyUrl = Constants.KEY_MAP.get(rKeyUrl);
 		String plat = Constants.PLAT_MAP.get(rPlat);
+		
 		
 		if (rKeyUrl != null && rPlat != null && keyUrl != null && plat != null) {
 			Enumeration enu = request.getParameterNames();  
@@ -45,8 +50,17 @@ public class DispatcherServlet extends HttpServlet {
 					paramsSb.append("&" + paraName + "=" + request.getParameter(paraName));
 				}
 			} 
-			String url = Constants.PATH + keyUrl + "?auth_key=" + Constants.AUTH_KEY + "&plat=" + plat + paramsSb.toString();
-			result = HttpClientUtil.getInstance().getResponseAsString(url);
+			String url = Constants.PRODUCT_PATH + keyUrl + "?auth_key=" + Constants.AUTH_KEY + "&plat=" + plat + paramsSb.toString();
+			if (Constants.LOCAL_DEBUG.equals(rDebug)) {
+				url = Constants.DEVELOP_PATH + keyUrl + "?auth_key=" + Constants.AUTH_KEY + "&plat=" + plat + paramsSb.toString();
+				result = HttpClientUtil.getInstance().getResponseAsString(url);
+			} else if (Constants.VIRTUAL_DEBUG.equals(rDebug)) {
+				String file = rKeyUrl + ".json";
+				String fileStr = FileUtil.getFileContent(file);
+				result = JSONObject.fromObject(fileStr).toString();
+			} else {
+				result = HttpClientUtil.getInstance().getResponseAsString(url);
+			}
 		}
 		out.write(result);
 		out.flush();
