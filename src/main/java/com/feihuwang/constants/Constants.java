@@ -29,6 +29,7 @@ public class Constants {
 		PLAT_MAP.put("1", "1"); // html5端
 		PLAT_MAP.put("6", "6"); // android
 		
-		KEY_MAP.put("KEY_CHANNEL_LIST", "channel/all.json"); // 栏目列表接口
+		KEY_MAP.put("KEY_CHANNEL_ALL", "channel/all.json"); // 栏目列表接口
+		KEY_MAP.put("KEY_CHANNEL_CONTENT", "channel/content.json"); // 栏目内容列表接口
 	}
 }
