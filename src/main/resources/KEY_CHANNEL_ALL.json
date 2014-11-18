@@ -3,25 +3,25 @@
     "statusText": "OK",
     "data": [
         {
-            "channel_Id": 1,
-            "channelName": "新闻",
+            "channel_id": 1,
+            "channel_name": "新闻",
             "has_content": 1,
             "priority": 1,
-            "isDisplay": 1
+            "is_display": 1
         },
         {
-            "channel_Id": 42,
-            "channelName": "图库",
+            "channel_id": 42,
+            "channel_name": "图库",
             "has_content": 1,
             "priority": 2,
-            "isDisplay": 1
+            "is_display": 1
         },
         {
-            "channel_Id": 61,
-            "channelName": "商城",
+            "channel_id": 61,
+            "channel_name": "商城",
             "has_content": 1,
             "priority": 8,
-            "isDisplay": 1
+            "is_display": 1
         }
     ]
 }
