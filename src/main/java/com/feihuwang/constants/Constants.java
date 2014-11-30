@@ -39,6 +39,7 @@ public class Constants {
 		KEY_MAP.put("KEY_CHANNEL_LIST", "channel/list.json"); // 栏目列表接口
 		KEY_MAP.put("KEY_CHANNEL_CONTENT", "channel/content.json"); // 栏目内容列表接口
 		KEY_MAP.put("KEY_CONTENT_DETAIL", "content/detail.json"); // 内容详细接口
+		KEY_MAP.put("KEY_CONTENT_REMARK_LIST", "content/remark/list"); // 内容评论列表接口
 		
 		// 商城类V1.0
 		KEY_MAP.put("KEY_CATEGORY_LIST", "category/list.json"); // 商品分类接口

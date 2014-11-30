@@ -1,0 +1,10 @@
+{
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+       "content_id": 487,
+       "user_name": "李斌",
+       "text": "这个内容确实不错，鼓舞下",
+       "create_time": "2014-04-19 17:11:37"
+    }
+}
