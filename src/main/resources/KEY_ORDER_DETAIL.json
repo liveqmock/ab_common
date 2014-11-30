@@ -1,0 +1,18 @@
+{
+    "status": 200,
+    "statusText": "OK",
+    "data": [
+    	"code": "1408611542954",
+        "status":2,
+        "payment_status":1,
+        "shipping_status":2,
+        "total":330,
+        "create_time":"2014-08-25 08:49:27",
+        "shipping_time":"2014-10-21 08:49:27",
+        "receive_name":"张三",
+        "receive_address":"北京市海淀区上地一号",
+        "receive_zip":"100860",
+        "receive_phone":"18600165314",
+        "payment_code":"alipayPartner",
+    ]
+}
