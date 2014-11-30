@@ -1,0 +1,19 @@
+{
+    "status": 200,
+    "statusText": "OK",
+    "data": [
+        {
+            "product_id": 100,
+            "name": "苹果4S",
+            "market_price": 4000,
+            "sale_price": 3000,
+            "cost_price": 2000,
+            "view_count":40000,
+            "stock_count":0,
+            "create_time":"2014-10-20",
+            "expire_time":"2015-10-22",
+            "is_special":0,
+            "score":400
+        }
+    ]
+}
