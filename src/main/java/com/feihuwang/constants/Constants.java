@@ -35,7 +35,20 @@ public class Constants {
 		PLAT_MAP.put("1", "1"); // html5端
 		PLAT_MAP.put("6", "6"); // android
 		
-		KEY_MAP.put("KEY_CHANNEL_ALL", "channel/all.json"); // 栏目列表接口
+		// 媒体类V1.0
+		KEY_MAP.put("KEY_CHANNEL_LIST", "channel/list.json"); // 栏目列表接口
 		KEY_MAP.put("KEY_CHANNEL_CONTENT", "channel/content.json"); // 栏目内容列表接口
+		KEY_MAP.put("KEY_CONTENT_DETAIL", "content/detail.json"); // 内容详细接口
+		
+		// 商城类V1.0
+		KEY_MAP.put("KEY_CATEGORY_LIST", "category/list.json"); // 商品分类接口
+		KEY_MAP.put("KEY_CATEGORY_GOODS_LIST", "category/goods/list.json"); // 某分类商品列表接口
+		KEY_MAP.put("KEY_ORDER_LIST", "order/list.json"); // 订单列表接口
+		KEY_MAP.put("KEY_ORDER_DETAIL", "order/detail.json"); // 订单详细接口
+		
+		// 用户类V1.0
+		KEY_MAP.put("KEY_USER_REGISTER", "user/register.json"); // 用户注册接口
+		KEY_MAP.put("KEY_USER_LOGIN", "user/login.json"); // 用户登录接口
+		
 	}
 }
